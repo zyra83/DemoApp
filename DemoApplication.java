@@ -17,15 +17,18 @@ public class DemoApplication {
 
     @Value("${city:Paris}")
     private String city;
+
+    @Value("${city:Red}")
+    private String color;
     
     @GetMapping("/")
     public String home(@RequestParam(value = "name", defaultValue = "Kubernetes") String name) {
         return String.format("Hello, %s!", name);
     }
 
-    @GetMapping("/")
-    public String details(@RequestParam(value = "name", defaultValue = "Kubernetes") String name) {
-        return String.format("Hello, %s!", name);
+    @GetMapping("/details")
+    public String details() {
+        return String.format("Country: %s \nCity: %s \Color: %s", country,city,color);
     }
 
     public static void main(String[] args) {
