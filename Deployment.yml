@@ -17,6 +17,15 @@ spec:
         image: <your-docker-image>
         ports:
         - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: app-config
+        env:
+        - name: COLOR
+          valueFrom:
+            secretKeyRef:
+              name: color-secret
+              key: color
 ---
 apiVersion: v1
 kind: Service
