@@ -23,7 +23,7 @@ public class DemoApplication {
     @Value("${city:Paris}")
     private String city;
 
-    @Value("${city:Blue}")
+    @Value("${color:Blue}")
     private String color;
   
     @GetMapping("/hello")
